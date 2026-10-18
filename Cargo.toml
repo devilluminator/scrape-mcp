@@ -1,0 +1,29 @@
+[package]
+name = "scrape-mcp"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+
+[lib]
+name = "scrape_mcp"
+path = "src/lib.rs"
+
+[[bin]]
+name = "scrape-mcp"
+path = "src/main.rs"
+
+[dependencies]
+rmcp = { version = "0.12", features = [
+    "server",
+    "macros",
+    "transport-streamable-http-server",
+] }
+axum = "0.8"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal"] }
+reqwest = "0.13.5"
+scraper = "0.23"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+anyhow = "1"
+url = "2"
